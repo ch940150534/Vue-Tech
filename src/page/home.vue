@@ -9,6 +9,7 @@
                     <li><a href="http://www.zxzx119.com/article-wiki-1.html">政策法规</a></li>
                     <li><a href="http://www.zxzx119.com/article-knowall-1.html">消防百科</a></li>
                     <li><a href="http://www.zxzx119.com/article-supervision-1.html">监督举报</a></li>
+                    <li><a href="http://d.zxzx119.com">企业名录</a></li>
                     <li><a href="http://www.zxzx119.com/article-onlineEdu-1.html">教育培训</a></li>
                     <li><a href="http://www.zxzx119.com/article-savezx-1.html">中消救援</a></li>
                 </ul>
