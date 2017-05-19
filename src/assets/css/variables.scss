@@ -1,0 +1,27 @@
+$white-max: #fff; //@panel-bg
+$white-bright: #f5f5f5; //@panel-zxzx-heading-bg @panel-footer-bg
+$white-light: #eee; //@body-bg
+$white-dark: #ddd; //@panel-zxzx-border @panel-inner-border use in font color with deep bg?(might change)
+//gray
+$gray-max: #acacac;
+$gray-dark: #666;
+$gray: #777;
+$gray-light: #888;
+$gray-bright: #dcdcdc;
+//black
+$black-bright: #333;
+$black-light: #222;
+$black-dark: #111;
+$black-max: #000;
+//red
+$hot-max: #a41531; //menu a.active
+$hot-dark: #c41335; //header a:hover
+$hot: #c51234; //a.form-hot
+$hot-light: #fd0000; //a.to-hot
+//blue
+$cold-dark: #457; //a.form-cold
+$cold-light: #679; //a.to-cold
+//header
+$header-height: 70px;
+$header-margin: 20px;
+

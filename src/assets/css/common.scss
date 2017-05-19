@@ -1,0 +1,154 @@
+@import './variables.scss';
+@import url(//at.alicdn.com/t/font_mkvadp8zzwso47vi.css);
+@font-face {
+    font-family: 'iconfont';
+    /* project id 292804 */
+    src: url('//at.alicdn.com/t/font_mkvadp8zzwso47vi.eot');
+    src: url('//at.alicdn.com/t/font_mkvadp8zzwso47vi.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_mkvadp8zzwso47vi.woff') format('woff'), url('//at.alicdn.com/t/font_mkvadp8zzwso47vi.ttf') format('truetype'), url('//at.alicdn.com/t/font_mkvadp8zzwso47vi.svg#iconfont') format('svg');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    font-family: 'STHeiti', Arial;
+    color: #333;
+    background-color: #eee;
+}
+
+p {
+    font-size: 1em;
+    line-height: 1.5em;
+    margin: .5em 0;
+    padding: .5em 0;
+}
+
+h1 {
+    font-size: 1.5em;
+    font-weight: bolder;
+    margin: 20px 0;
+}
+
+h2 {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.1em;
+    font-weight: normal;
+}
+
+ul,
+ol {
+    list-style-position: inside;
+}
+
+
+/* a tag classes */
+
+a {
+    cursor: pointer;
+    color: $gray-dark;
+    &:hover {
+        text-decoration: none;
+        color: $black-bright;
+    }
+    &:focus {
+        text-decoration: none;
+        color: $gray-dark;
+    }
+    &.title {
+        /* emphasis the link */
+        color: $cold-dark;
+        &:hover {
+            color: $hot-dark;
+        }
+    }
+    &.to-hot {
+        &:hover {
+            color: $hot-light;
+        }
+    }
+    &.to-cold {
+        &:hover {
+            color: $cold-light;
+        }
+    }
+    &.from-hot {
+        color: $hot-light;
+        &:hover {
+            color: $black-bright;
+        }
+    }
+    &.from-cold {
+        color: $cold-light;
+        &:hover {
+            color: $black-bright;
+        }
+    }
+    &.animated {
+        /* animated the link */
+        transition-duration: .5s;
+        text-decoration: none;
+        &:hover {
+            color: $hot-dark;
+        }
+    }
+}
+
+
+/*col width:auto*/
+
+.col-auto {
+    float: left;
+    width: auto;
+    padding: 0 10px;
+}
+
+
+/* vertical middle */
+
+.v-outter-table {
+    display: table !important;
+}
+
+.v-table-cell {
+    display: table-cell !important;
+    vertical-align: middle !important;
+}
+
+
+/*btn-zxzx*/
+
+.btn.btn-zxzx:hover {
+    background-color: $hot-light;
+}
+
+.btn.btn-zxzx {
+    color: $white-bright !important;
+    background-color: $hot-dark;
+}
+
+
+/*banner*/
+
+.banner-bg {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.banner-page {
+    width: 100%;
+    margin-top: -20px;
+}
+
+.img-verification {
+    margin: -6px -12px;
+    height: 32px;
+}
