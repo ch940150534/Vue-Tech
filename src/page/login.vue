@@ -53,7 +53,7 @@
                                         </div>
                                     </form>
                                     <div class="login-box-footer text-right">
-                                        <a href="/account/register" class="title">忘记密码</a>&nbsp;|&nbsp;<a href="/account/forget" class="title">免费注册</a>
+                                        <router-link to="/forget" class="title">忘记密码</router-link>&nbsp;|&nbsp;<a href="/account/forget" class="title">免费注册</a>
                                     </div>
                                 </div>
                             </div>
