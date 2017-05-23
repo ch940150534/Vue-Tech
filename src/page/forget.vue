@@ -28,8 +28,8 @@
                             <div class="form-group" id="account">
                                 <label class="control-label col-sm-3 ">用户名:</label>
                                 <div class="col-sm-4 col-md-5">
-                                    <input class="form-control" type="text" v-model="account" name="account" v-validata="'required|account'">
-                                    <span v-show="errors.has('account')" class="help is-danger">{{ errors.first('account') }}</span>
+                                    <input class="form-control" :class="{'border-danger':errors.has('account')}" type="text" v-model="account" name="account" v-validate="'required|account'">
+                                    <span v-show="errors.has('account')" class="text-danger">{{ errors.first('account') }}</span>
                                 </div>
 
                             </div>
@@ -37,16 +37,16 @@
                             <div class="form-group" id="phone">
                                 <label class="control-label col-sm-3 ">安全手机:</label>
                                 <div class="col-sm-4 col-md-5">
-                                    <input class="form-control" type="text" v-model="phone" name="phone" v-validate="'required|phone'" >
-                                    <span v-show="errors.has('phone')" class="help is-danger">{{ errors.first('phone') }}</span>
+                                    <input class="form-control" :class="{'border-danger':errors.has('phone')}" type="text" v-model="phone" name="phone" v-validate="'required|phone'" >
+                                    <span v-show="errors.has('phone')" class="text-danger">{{ errors.first('phone') }}</span>
                                 </div>
                             </div>
                             <!--新密码-->
                             <div class="form-group">
                                 <label class="control-label col-sm-3 ">新密码:</label>
                                 <div class="col-sm-4 col-md-5">
-                                    <input id="password" class="form-control" type="password" name="pwd1" v-validate="'required|password'">
-                                    <span v-show="errors.has('password')" class="help is-danger">{{ errors.first('password') }}</span>
+                                    <input id="password" class="form-control" :class="{'border-danger':errors.has('password')}" type="password" name="password" v-validate="'required|password'">
+                                    <span v-show="errors.has('password')" class="text-danger">{{ errors.first('password') }}</span>
                                 </div>
                                 <div class="col-sm-5 col-md-4 tips">最少8个字符，需包含大小写字母及数字</div>
                             </div>
@@ -55,10 +55,11 @@
                                 <label class="control-label col-sm-3 ">手机验证码:</label>
                                 <div class="col-sm-4 col-md-5">
                                     <div class="input-group">
-                                        <input class="form-control" type="text" name="code" required data-validation-message="验证码不能为空">
+                                        <input class="form-control" type="text" name="code" v-validate="'required'">
                                         <div class="input-group-btn">
                                             <a class="btn btn-default" id="send-sms" v-on:click="sendCode">免费获取验证码</a>
                                         </div>
+                                        <span v-show="errors.has('required')">{{ errors.first('required') }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -99,7 +100,7 @@ export default {
     },
     methods:{
         sendForm: function (e) {//发送表单
-            if (jrValidateForm('form-forget')) {
+            if (errors.any()) {
                 $.ajax({
                     url: this.PATH + '/account/reset',
                     type: 'POST',
@@ -124,7 +125,7 @@ export default {
             e.preventDefault();
         },
         sendCode: function(){//发送手机验证码
-            if(jrValidateForm('account')&&jrValidateForm('phone')){
+            if(errors.has('account')&&errors.has('phone')){
                 $.ajax({
                     url: this.PATH + '/account/sendsms?account='+this.account+'&phone='+this.phone,
                     type: 'POST',
@@ -219,5 +220,9 @@ export default {
     font-family: sans-serif;
     margin-left: -9px;
   }
+}
+
+.border-danger{
+    border-color: #a94442;
 }
 </style>
