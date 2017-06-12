@@ -149,6 +149,56 @@ a {
 }
 
 .img-verification {
-    margin: -6px -12px;
     height: 32px;
+    margin: -6px -12px;
+}
+
+.panel-basis {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 0px;
+    background-color: $white-max;
+    &.back {
+        padding: ($header-margin + 50px) 10px;
+    }
+    padding: $header-margin 10px;
+    margin: {
+        top: -$header-margin;
+        bottom: 0px;
+    }
+}
+
+.btn {
+    line-height: $line-height-base;
+}
+.tips {
+  color: #929292;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  &:before {
+    color: $hot-light;
+    content: '*';
+    font-family: sans-serif;
+    margin-left: -9px;
+  }
+}
+.has-feedfront{
+  position: relative;
+  .form-control-feedfront{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: auto;
+    z-index: 2;
+    display: block;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    pointer-events: none;
+    color:#ccc;
+    & + input{
+      padding-left: 34px;
+    }
+  } 
 }

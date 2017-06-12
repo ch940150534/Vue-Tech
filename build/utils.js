@@ -16,7 +16,8 @@ exports.cssLoaders = function (options) {
     loader: 'css-loader',
     options: {
       minimize: process.env.NODE_ENV === 'production',
-      sourceMap: options.sourceMap
+      sourceMap: options.sourceMap,
+      precision:10
     }
   }
 
@@ -27,7 +28,8 @@ exports.cssLoaders = function (options) {
       loaders.push({
         loader: loader + '-loader',
         options: Object.assign({}, loaderOptions, {
-          sourceMap: options.sourceMap
+          sourceMap: options.sourceMap,
+          precision:10,
         })
       })
     }

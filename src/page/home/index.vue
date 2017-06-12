@@ -1,6 +1,5 @@
 <template>
     <div class="home">
-        <htmlHeader :title="'中消在线'"></htmlHeader>
         <nav id="secondary-header" class="navbar" role="navigation">
             <div class="container">
                 <ul class="nav navbar-nav">
@@ -24,13 +23,13 @@
                 <i class="tech-arrow"></i>
             </div>
             <ul class="problem-list row list-unstyled">
-                <li class="col-sm-6 col-md-4"><img src="~assets/img/front-tech-img1.jpg" alt=""><span>对消防办理流程不了解</span></li>
-                <li class="col-sm-6 col-md-4"><img src="~assets/img/front-tech-img2.jpg" alt=""><span>找不到专业人员</span></li>
-                <li class="col-sm-6 col-md-4"><img src="~assets/img/front-tech-img3.jpg" alt=""><span>报备材料准备不充分</span></li>
-                <li class="col-sm-6 col-md-4"><img src="~assets/img/front-tech-img4.jpg" alt=""><span>消防设计图纸不合规</span></li>
-                <li class="col-sm-6 col-md-4"><img src="~assets/img/front-tech-img5.jpg" alt=""><span>施工乱收费现象</span></li>
-                <li class="col-sm-6 col-md-4"><img src="~assets/img/front-tech-img6.jpg" alt="">
-                    <a class="btn-reg" href="javascript: void(0);"></a><span>为您提供高效的消防解决方案</span></li>
+                <li class="col-sm-6 col-md-4"><img src="./front-tech-img1.jpg" alt=""><span>对消防办理流程不了解</span></li>
+                <li class="col-sm-6 col-md-4"><img src="./front-tech-img2.jpg" alt=""><span>找不到专业人员</span></li>
+                <li class="col-sm-6 col-md-4"><img src="./front-tech-img3.jpg" alt=""><span>报备材料准备不充分</span></li>
+                <li class="col-sm-6 col-md-4"><img src="./front-tech-img4.jpg" alt=""><span>消防设计图纸不合规</span></li>
+                <li class="col-sm-6 col-md-4"><img src="./front-tech-img5.jpg" alt=""><span>施工乱收费现象</span></li>
+                <li class="col-sm-6 col-md-4"><img src="./front-tech-img6.jpg" alt="">
+                    <router-link to="/register" class="btn-reg"></router-link><span>为您提供高效的消防解决方案</span></li>
             </ul>
         </div>
     </div>
@@ -95,7 +94,7 @@ export default {
         position: relative;
         width: 100%;
         height: 452px;
-        background: url("~assets/img/front-tech-bigimg.jpg");
+        background: url("./front-tech-bigimg.jpg");
         background-position: center top;
         .btn-upload {
             position: absolute;
@@ -125,7 +124,7 @@ export default {
         margin: 26px auto 53px;
         width: 23px;
         height: 23px;
-        background: url("~assets/img/front-tech-arrow.jpg");
+        background: url(" ./front-tech-arrow.jpg");
     }
     .problem-list {
         padding-bottom: 86px;

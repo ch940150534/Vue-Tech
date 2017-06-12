@@ -1,48 +1,45 @@
 <template>
     <div id="login">
-        <htmlHeader :title="'中消在线'"></htmlHeader>
         <!--登录面板  begin-->
         <div id="" class="banner-bg">
             <div class="container">
-                <div class="banner-page v-outter-table">
+                <div class="banner-page v-outter-table" :style="{height:bgHeight+'px'}">
                     <div class="row v-table-cell">
-                        <div class="col-sm-6 col-md-7 col-lg-8" id="login-img">
-                            <img src="~assets/img/login-bg-text.png" alt="" class="img-responsive">
+                        <div class="col-sm-6 col-md-7 col-lg-8 hidden-xs" id="login-img">
+                            <img src="./login-bg-text.png" alt="" class="img-responsive">
                         </div>
                         <!--登录面板  begin-->
                         <div class=" col-sm-6 col-md-5 col-lg-4" id="login-panel">
                             <div class="panel panel-default">
-                                <p class="login-title"><strong>账号登录</strong></p>
+                                <div class="login-title"><strong>账号登录</strong></div>
                                 <div class="panel-body login-body">
                                     <!--登录提示-->
-                                    <div id="login-tip">
+                                    <div class="login-tips" v-show="loginMessage">
+                                        <div class="row">
+                                            <div class="col-sm-1">
+                                                <i class="glyphicon glyphicon-exclamation-sign"></i>
+                                            </div>
+                                            <div class="col-sm-11">{{loginMessage}}</div>
+                                        </div>
                                     </div>
                                     <!--登陆表单-->
-                                    <form>
+                                    <form @submit.prevent="login">
                                         <!--账号-->
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <div class="input-group-addon">
-                                                    <i class="fa fa-user-o fa-fw i-input"></i>
-                                                </div>
-                                                <input class="form-control del-border-left" type="text" placeholder="账号" name="account">
-                                            </div>
+                                        <div class="form-group has-feedfront">
+                                            <span class="glyphicon glyphicon-user form-control-feedfront"></span>
+                                            <input v-model="form.account" class="form-control" type="text" placeholder="账号" name="account" id="account">
                                         </div>
                                         <!--密码-->
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <div class="input-group-addon ">
-                                                    <i class="fa fa-lock fa-fw i-font"></i>
-                                                </div>
-                                                <input class="form-control del-border-left" type="password" placeholder="密码" name="password">
-                                            </div>
+                                        <div class="form-group has-feedfront">
+                                            <span class="glyphicon glyphicon-lock form-control-feedfront"></span>
+                                            <input v-model="form.password" class="form-control" type="password" placeholder="密码" name="password">
                                         </div>
                                         <!--验证码-->
                                         <div class="form-group">
                                             <div class="input-group">
-                                                <input class="form-control" type="text" placeholder="输入验证码" name="imgCode">
+                                                <input class="form-control" v-model="form.imgCode" type="text" placeholder="输入验证码" name="imgCode">
                                                 <div class="input-group-addon">
-                                                    <img alt="验证码" class="img-verification" name="imgCode" @click="loadImgCode" :src="imgCode">
+                                                    <img alt="验证码" class="img-verification" name="imgCode" :src="imgCode" v-on:click="loadImgCode">
                                                 </div>
                                             </div>
                                         </div>
@@ -71,15 +68,16 @@ export default {
     name: 'login',
     mounted() {
         this.loadImgCode();
-        this.initHeight();
-        window.onresize = this.initHeight();
+        window.onresize = () =>{
+            this.bgHeight = window.innerHeight - 90;
+        };
     },
     data() {
         return {
             path: '/tech',
             imgCode: '',
             loginMessage: '',
-            showTips: false,
+            bgHeight: window.innerHeight - 90,
             form: {
                 account: '',
                 password: '',
@@ -101,22 +99,20 @@ export default {
             }).then(response => {
                 if (response.data.code !== 0) {
                     this.loginMessage = response.data.message;
-                    this.showTips = true;
                     this.loadImgCode();
                 } else {
-                    alert('login success')
-
+                    this.$http.get(this.path + '/project/view').then(response => {
+                        console.log(response.data)
+                    })
                 }
             });
         },
         loadImgCode: function() {
             this.imgCode = this.path + '/captcha?v=' + Math.random();
         },
-        initHeight: function() {
-            $('.banner-page').innerHeight($(window).height() - $('#back-header').innerHeight());
-            $('#login-img img').height($('#login-panel').height());
-        }
+
     },
+
 }
 </script>
 <style lang="scss" scoped rel="stylesheet/scss">
@@ -127,54 +123,48 @@ export default {
 #login {
     .banner-bg {
         margin-top: -20px;
-        background-image: url('~assets/img/login-bg.jpg')
+        background-image: url('./login-bg.jpg')
     }
-    @media (max-width: 767px) {
-        #login-img {
-            display: none;
+    #login-img {
+        line-height: 327px;
+        img {
+            display: inline-block;
         }
     }
-    .login-title {
-        padding-left: 20px;
-        border-bottom: 1px solid #e8e8e8;
-        font-size: 18px;
-    }
-    .login-body {
-        padding: 0 20px;
-        .login-tips {
-            padding: 5px 10px;
-            border: 0.5px solid rgba(0, 4, 87, 0.3);
-            border-radius: 5px;
-            font-size: 1.1em;
-            &:before {
-                content: none;
-            }
-            i {
-                color: $hot-dark;
-            }
-            a {
-                color: $hot-dark;
-                &:hover {
-                    color: $hot-light;
+    #login-panel {
+        .panel {
+            margin-bottom: 0px;
+        }
+        .login-title {
+            padding: 0 20px;
+            line-height: 50px;
+            border-bottom: 1px solid #e8e8e8;
+            font-size: 18px;
+        }
+        .login-body {
+            padding: 30px 20px;
+            .login-tips {
+                padding: 5px 10px;
+                border: 0.5px solid rgba(0, 4, 87, 0.3);
+                border-radius: 5px;
+                font-size: 1.1em;
+                &:before {
+                    content: none;
+                }
+                i {
+                    color: $hot-dark;
+                }
+                a {
+                    color: $hot-dark;
+                    &:hover {
+                        color: $hot-light;
+                    }
                 }
             }
-        }
-        .input-group {
-            .del-border-left {
-                border-left: 0 none;
-            }
-            .input-group-addon {
-                background-color: #fff;
-                &>i {
-                    font-size: 1.4em;
-                    color: #9c9c9c;
+            .login-box-footer {
+                a {
+                    color: #000;
                 }
-            }
-        }
-        .login-box-footer {
-            padding-bottom: 20px;
-            a {
-                color: #000;
             }
         }
     }

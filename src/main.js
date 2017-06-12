@@ -3,16 +3,20 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import components from './components/' //加载公共组件
+import '@/assets/css/common.scss'
 import $ from 'jquery'
 import 'bootstrap-loader'
-import '@/assets/css/common.scss'
-import Header from '@/components/header'
 import axios from 'axios'
 Vue.prototype.$http = axios;
+import VeeValidate from 'vee-validate';
+Vue.use(VeeValidate);
 
-Vue.component('htmlHeader', Header)
 Vue.config.productionTip = false
-
+Object.keys(components).forEach((key) => {
+    var name = key.replace(/(\w)/, (v) => v.toUpperCase()) //首字母大写
+    Vue.component(`v${name}`, components[key])
+})
 /* eslint-disable no-new */
 new Vue({
     el: '#app',

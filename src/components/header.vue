@@ -6,15 +6,15 @@
                     <a class="navbar-brand" href="#"> </a>
                 </div>
                 <div class="col-auto header-title hidden-xs">
-                    <div>{{title}}</div>
+                    <div>前沿科技</div>
                 </div>
                 <div class="col-sm-4 help-return">
-                    <a>注册</a><span class="dividing-line"></span>
+                    <router-link to="/register">注册</router-link><span class="dividing-line"></span>
                     <router-link to="/login" replace>登录</router-link>
                 </div>
                 <ul class="header-navigation list-inline col-auto">
                     <li><a>我的发布</a></li>
-                    <li><a><i class="iconfont icon-signout"></i></a></li>
+                    <li><a href="/tech/logout"><i class="iconfont icon-signout"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -30,7 +30,7 @@ export default {
 
         };
     },
-    props: ['title']
+    
 };
 </script>
 <style lang="scss" scoped>
