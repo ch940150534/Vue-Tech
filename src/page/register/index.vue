@@ -2,7 +2,6 @@
     <div id="register">
         <div class="container" id="vue">
             <div class="panel-basis">
-               
                 <div class="divide center-block"></div>
                 <!--账号资料  begin-->
                 <form class="form-horizontal" method="post" id="form-account">
@@ -105,7 +104,7 @@ export default {
         };
     },
     methods: {
-        submit: function() {
+        submit: function () {
             if (jrValidateForm('form-account')) {
                 $.ajax({
                     url: this.path + this.submitUrl,
@@ -114,7 +113,7 @@ export default {
                     dataType: 'json',
                     cache: false,
                     traditional: true,
-                    success: function(data) {
+                    success: function (data) {
                         if (data.code === 0) {
                             location.href = vue.path + vue.nextHref;
                         } else {
@@ -129,14 +128,15 @@ export default {
             }
         }
     },
-    
+
 };
 </script>
 <style lang="scss" scoped>
 .form-group {
     margin-bottom: 30px;
-  }
-  .panel-basis{
-  	padding-top:50px;
-  }
+}
+
+.panel-basis {
+    padding-top: 50px;
+}
 </style>
