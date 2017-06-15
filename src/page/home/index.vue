@@ -3,14 +3,30 @@
         <nav id="secondary-header" class="navbar" role="navigation">
             <div class="container">
                 <ul class="nav navbar-nav">
-                    <li><a href="http://www.zxzx119.com">首页</a></li>
-                    <li><a href="http://www.zxzx119.com/article-news-1.html">热点新闻</a></li>
-                    <li><a href="http://www.zxzx119.com/article-wiki-1.html">政策法规</a></li>
-                    <li><a href="http://www.zxzx119.com/article-knowall-1.html">消防百科</a></li>
-                    <li><a href="http://www.zxzx119.com/article-supervision-1.html">监督举报</a></li>
-                    <li><a href="http://d.zxzx119.com">企业名录</a></li>
-                    <li><a href="http://www.zxzx119.com/article-onlineEdu-1.html">教育培训</a></li>
-                    <li><a href="http://www.zxzx119.com/article-savezx-1.html">中消救援</a></li>
+                    <li>
+                        <a href="http://www.zxzx119.com">首页</a>
+                    </li>
+                    <li>
+                        <a href="http://www.zxzx119.com/article-news-1.html">热点新闻</a>
+                    </li>
+                    <li>
+                        <a href="http://www.zxzx119.com/article-wiki-1.html">政策法规</a>
+                    </li>
+                    <li>
+                        <a href="http://www.zxzx119.com/article-knowall-1.html">消防百科</a>
+                    </li>
+                    <li>
+                        <a href="http://www.zxzx119.com/article-supervision-1.html">监督举报</a>
+                    </li>
+                    <li>
+                        <a href="http://d.zxzx119.com">企业名录</a>
+                    </li>
+                    <li>
+                        <a href="http://www.zxzx119.com/article-onlineEdu-1.html">教育培训</a>
+                    </li>
+                    <li>
+                        <a href="http://www.zxzx119.com/article-savezx-1.html">中消救援</a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -23,13 +39,31 @@
                 <i class="tech-arrow"></i>
             </div>
             <ul class="problem-list row list-unstyled">
-                <li class="col-sm-6 col-md-4"><img src="./front-tech-img1.jpg" alt=""><span>对消防办理流程不了解</span></li>
-                <li class="col-sm-6 col-md-4"><img src="./front-tech-img2.jpg" alt=""><span>找不到专业人员</span></li>
-                <li class="col-sm-6 col-md-4"><img src="./front-tech-img3.jpg" alt=""><span>报备材料准备不充分</span></li>
-                <li class="col-sm-6 col-md-4"><img src="./front-tech-img4.jpg" alt=""><span>消防设计图纸不合规</span></li>
-                <li class="col-sm-6 col-md-4"><img src="./front-tech-img5.jpg" alt=""><span>施工乱收费现象</span></li>
-                <li class="col-sm-6 col-md-4"><img src="./front-tech-img6.jpg" alt="">
-                    <router-link to="/register" class="btn-reg"></router-link><span>为您提供高效的消防解决方案</span></li>
+                <li class="col-sm-6 col-md-4">
+                    <img src="./front-tech-img1.jpg" alt="">
+                    <span>对消防办理流程不了解</span>
+                </li>
+                <li class="col-sm-6 col-md-4">
+                    <img src="./front-tech-img2.jpg" alt="">
+                    <span>找不到专业人员</span>
+                </li>
+                <li class="col-sm-6 col-md-4">
+                    <img src="./front-tech-img3.jpg" alt="">
+                    <span>报备材料准备不充分</span>
+                </li>
+                <li class="col-sm-6 col-md-4">
+                    <img src="./front-tech-img4.jpg" alt="">
+                    <span>消防设计图纸不合规</span>
+                </li>
+                <li class="col-sm-6 col-md-4">
+                    <img src="./front-tech-img5.jpg" alt="">
+                    <span>施工乱收费现象</span>
+                </li>
+                <li class="col-sm-6 col-md-4">
+                    <img src="./front-tech-img6.jpg" alt="">
+                    <router-link to="/register" class="btn-reg"></router-link>
+                    <span>为您提供高效的消防解决方案</span>
+                </li>
             </ul>
         </div>
     </div>
@@ -65,7 +99,7 @@ export default {
                 bottom: $header-margin;
             }
             ;
-            ul > li > a {
+            ul>li>a {
                 color: $white-max;
                 font-size: 1.2em;
                 font-weight: bold;
@@ -83,7 +117,7 @@ export default {
                     ;
                 }
             }
-            ul > li:hover > a {
+            ul>li:hover>a {
                 color: $white-dark;
                 background-color: transparent;
                 font-weight: normal;
