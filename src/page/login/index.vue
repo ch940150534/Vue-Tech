@@ -11,7 +11,9 @@
                         <!--登录面板  begin-->
                         <div class=" col-sm-6 col-md-5 col-lg-4" id="login-panel">
                             <div class="panel panel-default">
-                                <div class="login-title"><strong>账号登录</strong></div>
+                                <div class="login-title">
+                                    <strong>账号登录</strong>
+                                </div>
                                 <div class="panel-body login-body">
                                     <!--登录提示-->
                                     <div class="login-tips" v-show="loginMessage">
@@ -50,7 +52,8 @@
                                         </div>
                                     </form>
                                     <div class="login-box-footer text-right">
-                                        <a href="/account/register" class="title">忘记密码</a>&nbsp;|&nbsp;<a href="/account/forget" class="title">免费注册</a>
+                                        <a href="/account/register" class="title">忘记密码</a>&nbsp;|&nbsp;
+                                        <a href="/account/forget" class="title">免费注册</a>
                                     </div>
                                 </div>
                             </div>
@@ -68,7 +71,7 @@ export default {
     name: 'login',
     mounted() {
         this.loadImgCode();
-        window.onresize = () =>{
+        window.onresize = () => {
             this.bgHeight = window.innerHeight - 90;
         };
     },
@@ -86,7 +89,7 @@ export default {
         }
     },
     methods: {
-        login: function() {
+        login: function () {
             this.$http({
                 method: 'POST',
                 url: this.path + '/account/login',
@@ -107,7 +110,7 @@ export default {
                 }
             });
         },
-        loadImgCode: function() {
+        loadImgCode: function () {
             this.imgCode = this.path + '/captcha?v=' + Math.random();
         },
 
@@ -117,6 +120,7 @@ export default {
 </script>
 <style lang="scss" scoped rel="stylesheet/scss">
 @import '~assets/css/variables.scss';
+
 
 /*login*/
 
